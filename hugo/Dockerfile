@@ -14,5 +14,13 @@ RUN ln -s /opt/hugo_0.12_linux_amd64/hugo_0.12_linux_amd64 /usr/local/bin/hugo
 #expose default hugo server port
 EXPOSE 1313
 
+#create dummy site directory and set as working dir
+RUN mkdir /site
+
+WORKDIR /site
+
+#when sued as a base image add the current folder to /site
+ONBUILD ADD . /site
+
 #set startup command
 ENTRYPOINT ["hugo"]
