@@ -22,5 +22,8 @@ WORKDIR /site
 #when sued as a base image add the current folder to /site
 ONBUILD ADD . /site
 
-#set startup command
-ENTRYPOINT ["hugo"]
+#configure entrypoint
+ADD docker_entrypoint.sh /
+
+ENTRYPOINT ["/docker_entrypoint.sh"]
+CMD ["server"]
