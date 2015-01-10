@@ -1,2 +1,3 @@
-# docker.hugo
-Repo for automated build of Docker image
+# DOCKERIMAGES
+
+This repository contains the Dockerfiles for the images which are build underthe fbrx namespace on Docker Hub.
