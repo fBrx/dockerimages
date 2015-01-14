@@ -4,17 +4,15 @@
 
 This is a base image for working with Hugo - a fast and modern static website engine. It can either be used to run arbitrary Hugo commands for your project or as a base image for your custom container.
 
-Via command parameters the command which should be used to run Hugo can be selected and parameterized.
-
-The default entrypoint runs the plain ```hugo```command. Any arguments supplied to ```docker run``` will be forwarded to the ```hugo``` command.
+The default entrypoint runs the plain ```hugo```command. Via command parameters the command which should be used to run Hugo can be selected and parameterized. For example running ```docker run ... fbrx/hugo server -D -F``` will result in running ```hugo server -D -F``` inside the container.
 
 ## Usage
 
 ### As a "on demand" Hugo runtime
 
-The image can be used to run Hugo commands for your project. Since the container needs the Hugo site data available, the correct folder has to be supplied in the ```docker run```command via the ```-v```parameter to be mounted at ```/site```.
+The image can be used to run Hugo commands for your project. Since the container needs the Hugo site data available, the correct folder has to be supplied in the ```docker run```command via the ```-v``` parameter to be mounted at ```/site```.
 
-See [Volumes](#volumes) for an example.
+See Volumes for an example and further detail.
 
 ### As a base image for your custom container
 
@@ -29,6 +27,7 @@ basePath/
 |-- static/
 |-- themes/
 |-- config.toml
+|-- Dockerfile
 ```
 
 A sample Dockerfile may look like follows:
@@ -53,11 +52,11 @@ The default entrypoint of the image performs the following steps:
 
 The default will just call ```hugo``` without any arguments which will just rebuild your site.
 
-## <a name="volumes"></a>Volumes
+## Volumes
 
 When run, the image expects a Hugo site structure at ```/site```. When used as a base image, the contents of the current folder will be added to this folder.
 
-When the image is used "standalone", the folder which should be used has to be specified via the ```-v```flag to the ```docker run``` command.
+When the image is used "standalone", the folder which should be used has to be specified via the ```-v``` flag to the ```docker run``` command.
 
 Example to use the current directory: ```docker run --rm -p 1313:1313 -v ${PWD}:/site fbrx/hugo```
 
