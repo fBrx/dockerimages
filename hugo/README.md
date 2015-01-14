@@ -67,4 +67,4 @@ When the image is used to run your site via ```hugo server``` in conjunction wit
 
 Example: ```docker run --rm -p 1313:1313 -v ${PWD}:/site fbrx/hugo server -b 192.168.59.103```
 
-The IP of the boot2dpcker host can be obtained by simply running ```boot2docker ip```.
+The IP of the boot2docker host can be obtained by simply running ```boot2docker ip```.
