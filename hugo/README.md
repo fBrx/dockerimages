@@ -51,7 +51,7 @@ The default entrypoint of the image performs the following steps:
 1. clean the /site/public directory
 2. run the hugo command with all arguments supplied via the CMD instruction (either via ```Dockerfile``` or arguments to ```docker run```)
 
-The default will just call hugo without any arguments which will just rebuild your site.
+The default will just call ```hugo``` without any arguments which will just rebuild your site.
 
 ## <a name="volumes"></a>Volumes
 
@@ -60,3 +60,11 @@ When run, the image expects a Hugo site structure at ```/site```. When used as a
 When the image is used "standalone", the folder which should be used has to be specified via the ```-v```flag to the ```docker run``` command.
 
 Example to use the current directory: ```docker run --rm -p 1313:1313 -v ${PWD}:/site fbrx/hugo```
+
+## boot2docker
+
+When the image is used to run your site via ```hugo server``` in conjunction with boot2docker, you have to supply the IP or hostname of your boot2docker host  as the baseUrl to the hugo command.
+
+Example: ```docker run --rm -p 1313:1313 -v ${PWD}:/site fbrx/hugo server -b 192.168.59.103```
+
+The IP of the boot2dpcker host can be obtained by simply running ```boot2docker ip```.
