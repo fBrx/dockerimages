@@ -19,11 +19,10 @@ RUN mkdir /site
 
 WORKDIR /site
 
-#when sued as a base image add the current folder to /site
+#when used as a base image add the current folder to /site folder (workdir)
 ONBUILD ADD . /site
 
 #configure entrypoint
 ADD docker_entrypoint.sh /
 
 ENTRYPOINT ["/docker_entrypoint.sh"]
-CMD ["server"]
