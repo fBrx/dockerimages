@@ -29,14 +29,13 @@ RUN rm *.tar.gz
     RUN sudo apt-get install nginx -y
     ADD conf/nginx.kibana.conf /etc/nginx/sites-available/
     RUN ln -s /etc/nginx/sites-available/nginx.kibana.conf /etc/nginx/sites-enabled && rm /etc/nginx/sites-enabled/default
+    ADD conf/kibana.config.js /opt/kibana-3.1.2/config.js
 
 #CONFIG logstash
     ADD conf/logstash.conf /opt/logstash-1.4.2/
 
-#EXPOSE kibana port
+#EXPOSE nginx
 EXPOSE 80
-#EXPOSE elasticsearch
-EXPOSE 9200
 
 #add entrypoint
 ADD docker_entrypoint.sh /
