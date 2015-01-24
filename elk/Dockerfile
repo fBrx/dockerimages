@@ -30,6 +30,7 @@ RUN rm *.tar.gz
     ADD conf/nginx.kibana.conf /etc/nginx/sites-available/
     RUN ln -s /etc/nginx/sites-available/nginx.kibana.conf /etc/nginx/sites-enabled && rm /etc/nginx/sites-enabled/default
     ADD conf/kibana.config.js /opt/kibana-3.1.2/config.js
+    ADD conf/AccessLogs.json /opt/kibana-3.1.2/app/dashboards/
 
 #CONFIG logstash
     ADD conf/logstash.conf /opt/logstash-1.4.2/
