@@ -33,7 +33,10 @@ RUN rm *.tar.gz
     ADD conf/AccessLogs.json /opt/kibana-3.1.2/app/dashboards/
 
 #CONFIG logstash
-    ADD conf/logstash.conf /opt/logstash-1.4.2/
+    ADD conf/logstash.conf /opt/logstash-1.4.2/conf/
+
+#add volume for external logs
+VOLUME /opt/logs
 
 #EXPOSE nginx
 EXPOSE 80
