@@ -35,6 +35,9 @@ RUN rm *.tar.gz
 #CONFIG logstash
     ADD conf/logstash.elk.conf /opt/logstash-1.4.2/conf/
 
+#adding custom logstash configs on build
+ONBUILD COPY logstash.*.conf /opt/logstash-1.4.2/conf/
+
 #add volume for external logs
 VOLUME /opt/logs
 
