@@ -29,7 +29,7 @@ function (Settings) {
      *  +elasticsearch: {server: "http://localhost:9200", withCredentials: true}+
      *
      */
-    elasticsearch: "http://"+window.location.hostname+":"+window.location.port+"/elasticsearch",
+    elasticsearch: "//"+window.location.hostname+":"+window.location.port+"/elasticsearch",
 
     /** @scratch /configuration/config.js/5
      *

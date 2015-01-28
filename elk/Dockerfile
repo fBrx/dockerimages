@@ -38,11 +38,14 @@ RUN rm *.tar.gz
 #adding custom logstash configs on build
 ONBUILD COPY logstash.*.conf /opt/logstash-1.4.2/conf/
 
+#adding custom ssl certificate on build
+ONBUILD COPY server.* /etc/nginx/ssl/
+
 #add volume for external logs
 VOLUME /opt/logs
 
 #EXPOSE nginx
-EXPOSE 80
+EXPOSE 443
 
 #add entrypoint
 ADD docker_entrypoint.sh /
