@@ -36,11 +36,10 @@ RUN rm *.tar.gz
 #CONFIG logstash
     ADD conf/logstash.elk.conf /opt/logstash-1.4.2/conf/
 
-#adding custom logstash configs on build
-ONBUILD COPY logstash.*.conf /opt/logstash-1.4.2/conf/
-
-#adding custom ssl certificate on build
-ONBUILD COPY server.* /etc/nginx/ssl/
+#adding custom configs on build
+ONBUILD COPY * /opt/tmpconfig/
+ONBUILD RUN if [ -e /opt/tmpconfig/logstash.*.conf ]; then cp /opt/tmpconfig/logstash.*.conf /opt/logstash-1.4.2/conf/; fi
+ONBUILD RUN if [ -e /opt/tmpconfig/server.* ]; then cp /opt/tmpconfig/server.* /etc/nginx/ssl/; fi
 
 #add volume for external logs
 VOLUME /opt/logs
