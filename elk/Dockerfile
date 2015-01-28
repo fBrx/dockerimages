@@ -28,6 +28,7 @@ RUN rm *.tar.gz
     #install and configure nginx for kibana
     RUN sudo apt-get install nginx -y
     ADD conf/nginx.kibana.conf /etc/nginx/sites-available/
+    ADD conf/server.* /etc/nginx/ssl/
     RUN ln -s /etc/nginx/sites-available/nginx.kibana.conf /etc/nginx/sites-enabled && rm /etc/nginx/sites-enabled/default
     ADD conf/kibana.config.js /opt/kibana-3.1.2/config.js
     ADD conf/AccessLogs.json /opt/kibana-3.1.2/app/dashboards/
