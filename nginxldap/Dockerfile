@@ -10,11 +10,9 @@ RUN tar -xzf nginx-1.7.9.tar.gz && rm nginx-1.7.9.tar.gz
 RUN git clone https://github.com/kvspb/nginx-auth-ldap.git
 
 #TODO fix configuration to imitate apt-get install
-WORKDIR /work/nginx-1.7.9
-RUN ./configure --add-module=/work/nginx-auth-ldap/
+ADD nginx.configure.sh /work/
+RUN ./nginx.configure.sh /work/nginx-1.7.9/
 RUN make install
-
-WORKDIR /work
 
 RUN wget https://raw.githubusercontent.com/calvinbui/nginx-init-ubuntu/master/nginx -O /etc/init.d/nginx
 
