@@ -19,3 +19,8 @@ RUN wget https://raw.githubusercontent.com/calvinbui/nginx-init-ubuntu/master/ng
 #TODO fix paths
 
 #TODO start
+
+
+
+EXPOSE 80
+EXPOSE 443
