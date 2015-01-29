@@ -9,3 +9,4 @@ echo running nginx configure with base path: $1
 cd $1
 
 ./configure --add-module=/work/nginx-auth-ldap/
+make install
