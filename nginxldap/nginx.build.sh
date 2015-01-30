@@ -8,5 +8,12 @@
 echo running nginx configure with base path: $1
 cd $1
 
-./configure --add-module=/work/nginx-auth-ldap/
+./configure \
+    --add-module=/work/nginx-auth-ldap/ \
+    --with-http_ssl_module \
+    --with-pcre=/work/pcre-8.35 \
+    --with-zlib=/work/zlib-1.2.8 \
+    --with-openssl=/work/openssl-1.0.2 \
+    --with-http_spdy_module
+
 make install
