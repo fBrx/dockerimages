@@ -9,6 +9,13 @@ echo running nginx configure with base path: $1
 cd $1
 
 ./configure \
+    --user=nginx \
+    --group=nginx \
+    --http-log-path=/var/log/nginx/access.log \
+    --error-log-path=/var/log/nginx/error.log \
+    --conf-path=/etc/nginx/nginx.conf \
+    --pid-path=/run/nginx.pid \
+    --sbin-path=/usr/sbin/nginx \
     --add-module=/work/nginx-auth-ldap/ \
     --with-http_ssl_module \
     --with-pcre=/work/pcre-8.35 \

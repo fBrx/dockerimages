@@ -12,6 +12,7 @@ RUN git clone https://github.com/kvspb/nginx-auth-ldap.git
 
 #TODO fix configuration to imitate apt-get install
 ADD nginx.build.sh /work/
+RUN useradd -M -U -s /usr/sbin/nologin nginx
 RUN ./nginx.build.sh /work/nginx-1.7.9/
 
 RUN wget https://raw.githubusercontent.com/calvinbui/nginx-init-ubuntu/master/nginx -O /etc/init.d/nginx
