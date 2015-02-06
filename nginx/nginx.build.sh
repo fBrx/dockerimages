@@ -16,11 +16,12 @@ cd $1
     --conf-path=/etc/nginx/nginx.conf \
     --pid-path=/run/nginx.pid \
     --sbin-path=/usr/sbin/nginx \
+    --with-debug \
     --with-http_ssl_module \
     --with-pcre=/work/pcre-8.35 \
     --with-zlib=/work/zlib-1.2.8 \
     --with-openssl=/work/openssl-1.0.2 \
-    --with-http_spdy_module
-    --add-module=/work/nginx-auth-ldap/ \
+    --with-http_spdy_module \
+    --add-module=/work/nginx-auth-ldap/
 
 make install
