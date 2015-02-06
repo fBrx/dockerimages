@@ -31,5 +31,8 @@ ONBUILD COPY * /tmpconfig/
 ONBUILD RUN if [ -e /tmpconfig/nginx.* ]; then cp /tmpconfig/nginx.* /etc/nginx/sites-enabled/; rm /etc/nginx/sites-enabled/default; fi
 ONBUILD RUN rm -rf /tmpconfig
 
+# expose nginx config dir
+VOLUME ["/etc/nginx/sites-enabled"]
+
 # start
 CMD ["/usr/sbin/nginx"]
