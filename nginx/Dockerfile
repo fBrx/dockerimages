@@ -29,4 +29,5 @@ ADD nginx.init /etc/init.d/nginx
 EXPOSE 80
 EXPOSE 443
 
-#TODO start
+# start
+CMD ["/usr/sbin/nginx"]
