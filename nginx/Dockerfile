@@ -18,16 +18,18 @@ ADD nginx.build.sh /work/
 RUN useradd -M -U -s /usr/sbin/nologin nginx
 RUN ./nginx.build.sh /work/nginx-1.7.9/
 RUN mkdir /etc/nginx/sites-available /etc/nginx/sites-enabled
-ADD nginx.conf /etc/nginx/
 ADD default /etc/nginx/sites-available/
 RUN ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-
-# add init script
-ADD nginx.init /etc/init.d/nginx
+ADD nginx.conf /etc/nginx/
 
 # expose default ports
 EXPOSE 80
 EXPOSE 443
+
+# add custom configs
+ONBUILD COPY * /tmpconfig/
+ONBUILD RUN if [ -e /tmpconfig/nginx.* ]; then cp /tmpconfig/nginx.* /etc/nginx/sites-enabled/; rm /etc/nginx/sites-enabled/default; fi
+ONBUILD RUN rm -rf /tmpconfig
 
 # start
 CMD ["/usr/sbin/nginx"]
