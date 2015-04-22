@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:15.04
 MAINTAINER Florian Brüssel <florian@florian-m.net>
 
 #install needed
