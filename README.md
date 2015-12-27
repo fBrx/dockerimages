@@ -1,3 +1,3 @@
 # DOCKERIMAGES
 
-This repository contains the Dockerfiles for the images which are build underthe fbrx namespace on Docker Hub.
+This repository contains the Dockerfiles for the images which are build under the fbrx namespace on Docker Hub.
