@@ -8,6 +8,10 @@ RUN wget http://mirror.netcologne.de/apache.org/tomcat/tomcat-8/v8.0.30/bin/apac
 	sha1sum -cw apache-tomcat-8.0.30.tar.gz.sha1 && \
 	tar -xzf apache-tomcat-8.0.30.tar.gz -C /opt/ && \
 	rm -f apache-tomcat-8.0.30/bin/*.bat && \
+	rm -rf apache-tomcat-8.0.30/webapps/docs && \
+	rm -rf apache-tomcat-8.0.30/webapps/examples && \
+	rm -rf apache-tomcat-8.0.30/webapps/manager && \
+	rm -rf apache-tomcat-8.0.30/webapps/host-manager && \
 	rm -f apache-tomcat-8.0.30.tar.gz
 	
 #improve tomcat startup performanc eby setting non blobking random generator
