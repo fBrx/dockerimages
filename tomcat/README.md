@@ -1,6 +1,6 @@
 # fbrx/tomcat
 
-## description
+## Description
 
 This is a minimal docker image containing an Apache Tomcat Web Container, based on Alpine Linux. All additional content is removed to make the image as lightweight as possible. 
 
@@ -14,3 +14,9 @@ FROM fbrx/tomcat
 
 ADD my-sample-ap.war webapps/
 ```
+
+## Ports
+
+The image exposes two ports:
+* 8080 - the default http port
+* 8009 - the JMX connector port
