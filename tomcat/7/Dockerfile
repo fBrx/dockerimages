@@ -15,7 +15,8 @@ RUN wget $TC_URL && \
 
 # install tomcat to /opt/apache-tomcat
 RUN	mkdir apache-tomcat && \
-	tar -xzf apache-tomcat-$TC_VERSION.tar.gz -C apache-tomcat --strip-components=1
+	tar -xzf apache-tomcat-$TC_VERSION.tar.gz && \
+	mv apache-tomcat-$TC_VERSION apache-tomcat
 	
 # remove unnecessary components
 RUN	rm -f apache-tomcat/bin/*.bat && \
