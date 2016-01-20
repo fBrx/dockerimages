@@ -1,4 +1,5 @@
 FROM anapsix/alpine-java:jdk8
+MAINTAINER Florian Brüssel <florian@florian-m.net>
 
 # set version info for desired tomcat version
 ENV TC_MAJOR 6
