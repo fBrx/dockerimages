@@ -14,8 +14,7 @@ RUN wget $TC_URL && \
 	sha1sum -cw apache-tomcat-$TC_VERSION.tar.gz.sha1
 
 # install tomcat to /opt/apache-tomcat
-RUN	mkdir apache-tomcat && \
-	tar -xzf apache-tomcat-$TC_VERSION.tar.gz && \
+RUN	tar -xzf apache-tomcat-$TC_VERSION.tar.gz && \
 	mv apache-tomcat-$TC_VERSION apache-tomcat
 	
 # remove unnecessary components
