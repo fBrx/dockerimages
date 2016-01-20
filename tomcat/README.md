@@ -18,5 +18,5 @@ ADD my-sample-ap.war webapps/
 ## Ports
 
 The image exposes two ports:
-* 8080 - the default http port
-* 8009 - the JMX connector port
+* ```8080``` - the default http port
+* ```8009``` - the JMX connector port
