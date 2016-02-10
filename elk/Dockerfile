@@ -26,7 +26,7 @@ RUN rm *.tar.gz
 
 #CONFIG kibana
     #install and configure nginx for kibana
-    RUN sudo apt-get install nginx -y
+    RUN apt-get install nginx -y
     ADD conf/nginx.kibana.conf /etc/nginx/sites-available/
     ADD conf/server.* /etc/nginx/ssl/
     RUN ln -s /etc/nginx/sites-available/nginx.kibana.conf /etc/nginx/sites-enabled && rm /etc/nginx/sites-enabled/default
