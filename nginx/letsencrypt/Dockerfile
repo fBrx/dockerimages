@@ -12,3 +12,15 @@ VOLUME ["/etc/nginx"]
 EXPOSE 80 443
 
 CMD ["nginx", "-g", "daemon off;"]
+
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y git
+
+ENV DEBIAN_FRONTEND noninteractive
+RUN git clone https://github.com/letsencrypt/letsencrypt /opt/letsencrypt
+RUN /opt/letsencrypt/letsencrypt-auto --help all
+ENV LE_MAIL= LE_DOMAIN=
+ENV LE_CLI --standalone -v -n -t
+ENV LE_ARGS --test-cert
+ADD run.sh .
+RUN chmod a+x run.sh
+CMD ["./run.sh"]
