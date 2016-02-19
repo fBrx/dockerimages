@@ -3,7 +3,7 @@ MAINTAINER Florian Brüssel <florian@florian-m.net>
 
 # set version info for desired tomcat version
 ENV TC_MAJOR 7
-ENV TC_VERSION 7.0.67
+ENV TC_VERSION 7.0.68
 
 # calculate download url
 ENV TC_URL https://www.apache.org/dist/tomcat/tomcat-$TC_MAJOR/v$TC_VERSION/bin/apache-tomcat-$TC_VERSION.tar.gz
