@@ -4,7 +4,7 @@ MAINTAINER Florian Brüssel <florian@florian-m.net>
 ENV DEBIAN_FRONTEND noninteractive
 
 #install nginx and git
-RUN apt-get update && apt-get install -y nginx git
+RUN apt-get update && apt-get install -y nginx git ca-certificates
 
 # forward nginx request and error logs to docker log collector
 RUN ln -sf /dev/stdout /var/log/nginx/access.log && \
