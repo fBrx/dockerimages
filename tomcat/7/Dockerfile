@@ -1,6 +1,9 @@
 FROM anapsix/alpine-java:jdk8
 MAINTAINER Florian Brüssel <florian@florian-m.net>
 
+#update ca certificates
+RUN apt-get update && apt-get install -y ca-certificates
+
 # set version info for desired tomcat version
 ENV TC_MAJOR 7
 ENV TC_VERSION 7.0.69
