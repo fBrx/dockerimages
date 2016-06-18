@@ -1,8 +1,9 @@
 FROM anapsix/alpine-java:jdk8
 MAINTAINER Florian Brüssel <florian@florian-m.net>
 
-#update ca certificates
-RUN apt-get update && apt-get install -y ca-certificates
+#add openssl for https download
+RUN apk add --update openssl && \
+    rm -rf /var/cache/apk/* /tmp/*
 
 # set version info for desired tomcat version
 ENV TC_MAJOR 7
