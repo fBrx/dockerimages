@@ -21,7 +21,7 @@ RUN wget $TC_URL && \
 # install tomcat to /opt/apache-tomcat
 RUN	tar -xzf apache-tomcat-$TC_VERSION.tar.gz && \
 	mv apache-tomcat-$TC_VERSION apache-tomcat
-	
+
 # remove unnecessary components
 RUN	rm -f apache-tomcat/bin/*.bat && \
 	rm -rf apache-tomcat/webapps/docs && \
@@ -29,12 +29,15 @@ RUN	rm -f apache-tomcat/bin/*.bat && \
 	rm -rf apache-tomcat/webapps/manager && \
 	rm -rf apache-tomcat/webapps/host-manager && \
 	rm -f apache-tomcat-$TC_VERSION.*
-	
+
 #improve tomcat startup performance by setting non blocking random generator
 RUN echo "CATALINA_OPTS=-Djava.security.egd=file:/dev/./urandom" > apache-tomcat/bin/setenv.sh && \
 	chmod a+x apache-tomcat/bin/setenv.sh
 
 WORKDIR /opt/apache-tomcat
+
+# add volume for webapps folder
+VOLUME /opt/apache-tomcat/webapps
 
 # expose http and jmx ports
 EXPOSE 8080 8009
