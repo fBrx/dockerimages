@@ -6,10 +6,10 @@ script:
 # prepare qemu
 - docker run --rm --privileged multiarch/qemu-user-static:register --reset
 # build image
-- docker build -t fbrx/rpi-nginx-letsencrypt nginx/rpi-nginx-letsencrypt/
+#- docker build -t fbrx/rpi-nginx-letsencrypt nginx/rpi-nginx-letsencrypt/
+- docker pull fbrx/rpi-nginx-letsencrypt
 # test image
-- docker run fbrx/rpi-nginx-letsencrypt /opt/letsencrypt/letsencrypt-auto --version
+#- docker run fbrx/rpi-nginx-letsencrypt /opt/letsencrypt/letsencrypt-auto --version
 # push image
-- >
-    docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
-    docker push fbrx/rpi-nginx-letsencrypt
+- docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
+#- docker push fbrx/rpi-nginx-letsencrypt
