@@ -8,13 +8,8 @@ script:
 # build image
 - docker build -t fbrx/rpi-nginx-letsencrypt nginx/rpi-nginx-letsencrypt/
 # test image
-#- docker run hypriot/rpi-mysql mysql --version
+- docker run fbrx/rpi-nginx-letsencrypt /opt/letsencrypt/letsencrypt-auto --version
 # push image
-#- >
-#  if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-#    docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
-#    TAG=$(grep "ENV MYSQL_VERSION" Dockerfile | awk 'NF>1{print $NF}')
-#    docker tag hypriot/rpi-mysql hypriot/rpi-mysql:$TAG
-#    docker push hypriot/rpi-mysql:$TAG
-#    docker push hypriot/rpi-mysql
-#  fi
+- >
+    docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
+    docker push fbrx/rpi-nginx-letsencrypt
