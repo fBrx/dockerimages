@@ -11,7 +11,6 @@ script:
 - docker run fbrx/rpi-nginx-letsencrypt /opt/letsencrypt/letsencrypt-auto --version
 # determine and set tag
 - TAG=$(docker run -it --rm fbrx/rpi-nginx-letsencrypt grep ConfigArgParse== /opt/letsencrypt/letsencrypt-auto | awk '{print $1}' | awk -F == '{print $2}')
-- echo "determined tag: $TAG"
 - docker tag fbrx/rpi-nginx-letsencrypt fbrx/rpi-nginx-letsencrypt:$TAG
 # push image
 - docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
