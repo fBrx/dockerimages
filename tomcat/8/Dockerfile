@@ -7,7 +7,7 @@ RUN apk add --update openssl && \
 
 # set version info for desired tomcat version
 ENV TC_MAJOR 8
-ENV TC_VERSION 8.0.42
+ENV TC_VERSION 8.0.44
 
 # calculate download url
 ENV TC_URL https://www.apache.org/dist/tomcat/tomcat-$TC_MAJOR/v$TC_VERSION/bin/apache-tomcat-$TC_VERSION.tar.gz
