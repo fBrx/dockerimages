@@ -10,10 +10,10 @@ script:
 # test image
 - docker run fbrx/rpi-nginx-letsencrypt /opt/letsencrypt/letsencrypt-auto --version
 # determine and set tag
-- TAG=$(docker run fbrx/rpi-nginx-letsencrypt /opt/letsencrypt/letsencrypt-auto --version 2>&1 | awk '{ print $2 }')
-- echo extracted tag name: "$TAG"
-- docker tag fbrx/rpi-nginx-letsencrypt fbrx/rpi-nginx-letsencrypt:"$TAG"
+# - TAG=$(docker run fbrx/rpi-nginx-letsencrypt /opt/letsencrypt/letsencrypt-auto --version 2>&1 | awk '{ print $2 }')
+# - echo extracted tag name: "$TAG"
+# - docker tag fbrx/rpi-nginx-letsencrypt fbrx/rpi-nginx-letsencrypt:"$TAG"
 # push image
 - docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
 - docker push fbrx/rpi-nginx-letsencrypt
-- docker push fbrx/rpi-nginx-letsencrypt:"$TAG"
+# - docker push fbrx/rpi-nginx-letsencrypt:"$TAG"
