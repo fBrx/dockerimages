@@ -1,14 +1,12 @@
 FROM tarampampam/node
 MAINTAINER Florian Brüssel <florian@florian-m.net>
 
-RUN apt-get update && \
-    apt-get install -y \
-    python \
-    py-pip \
-    groff \
-    less \
-    mailcap \
-    && \
-    pip install awscli --upgrade --user && \
-    apk -v --purge del py-pip && \
-    rm /var/cache/apk/*
+# install pip
+RUN curl -O https://bootstrap.pypa.io/get-pip.py && \
+    python get-pip.py --user && \
+    export PATH=~/.local/bin:$PATH && \
+    pip --version
+
+# install aws-cli
+RUN pip install awscli --upgrade --user && \
+    aws --version
