@@ -2,7 +2,7 @@ FROM tarampampam/node
 MAINTAINER Florian Brüssel <florian@florian-m.net>
 
 RUN apt-get update && \
-    apt-get isntall -y \
+    apt-get install -y \
     python \
     py-pip \
     groff \
